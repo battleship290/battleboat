@@ -40,6 +40,25 @@ public class Boat {
 		return this.isSunk;
 	}
 	
-
-	
+	/**
+	 * Checks the boat to see if it
+	 * was hit, and updates it accordingly
+	 * 
+	 * @param row
+	 * @param col
+	 * @return
+	 */
+	public boolean checkHit(int row,int col) {
+		Coord temp = new Coord(row, col);
+		if (this.coordinates.contains(temp) && !this.wounds.contains(temp)) {
+			this.wounds.add(temp);
+			this.health --;
+			this.checkSunk();
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 }
+	
