@@ -4,11 +4,21 @@ public class Missile {
 	private String type;
 	private int quantity;
 	
+	/**
+	 * Constructs an instance of a default missile
+	 */
+	
 	public Missile() {
 		// this is a regular missile
 		this.type = "regular";
 		this.quantity = -1;
 	}
+	
+	/**
+	 * Constructs a non-default missile 
+	 * @param type The type of the missile
+	 * @param quantity The quantity of the missile
+	 */
 	
 	public Missile(String type, int quantity) {
 		this.type = type;
@@ -35,8 +45,6 @@ public class Missile {
 			return true;
 		}
 		else return true;
+		
 	}
-	
-	
-
 }
