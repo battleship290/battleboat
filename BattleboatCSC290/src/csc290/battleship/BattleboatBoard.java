@@ -110,8 +110,8 @@ public class BattleboatBoard {
 		else return true;
 	}
 	
-	public boolean Move(int row, int col, Missile m) {
-		if (m.getType() == "regular" && this.hasMove(row, col)) {
+	public boolean Move(int row, int col) {
+		if (this.hasMove(row, col)) {
 			if (this.board[row][col] == BOAT) {
 				this.board[row][col] = HIT;
 				// update other possible conditions BTL
@@ -124,13 +124,8 @@ public class BattleboatBoard {
 			}
 			// this case should technically never happen
 			else return false;
-		}
-		
-		// *****if else statements for missiles of other types BTL*****
-		
-		else {
-			return false;
-		}
+		}		
+		return false;
 	}
 	
 	/**
