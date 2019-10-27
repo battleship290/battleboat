@@ -37,6 +37,12 @@ public class BattleboatBoard {
 		}
 	}
 	
+	/**
+	 * return if the coordinate is valid
+	 * @param row
+	 * @param col
+	 * @return boolean
+	 */
 	private boolean validCoordinate(int row, int col) {
 		if (row < 0 || col < 0 || row > dim-1 || col > dim-1) return false;
 		return true;
@@ -56,12 +62,28 @@ public class BattleboatBoard {
 		return count;
 	}
 	
+	/**
+	 * check if the object at row,col is a boat
+	 * @param row
+	 * @param col
+	 * @return boolean
+	 */
 	public boolean isBoat(int row, int col) {
 		if (!this.validCoordinate(row, col)) return false;
 		if (this.board[row][col] == BOAT || this.board[row][col] == HIT) return true;
 		else return false;
 	}
-	
+
+
+	/**
+	 * check if the the boat with length of length can be place at the coordinate row_start,col_start, return true if can be placed
+	 * @param row_start
+	 * @param col_start
+	 * @param drow
+	 * @param dcol
+	 * @param length
+	 * @return boolean
+	 */
 	private boolean canPlaceBoat(int row_start, int col_start, int drow, int dcol, int length) {
 		int count = 1;
 		int row = row_start, col = col_start;
@@ -76,6 +98,14 @@ public class BattleboatBoard {
 		return true;
 	}
 	
+	/**
+	 * place the boat at coordinate row_start,col_start, return true if the boat is placed 
+	 * @param row_start
+	 * @param col_start
+	 * @param row_end
+	 * @param col_end
+	 * @return boolean
+	 */
 	public boolean placeBoat(int row_start, int col_start, int row_end, int col_end) {
 		int row = row_start, col = col_start;
 		int drow = (row_end - row_start), dcol = (col_end - col_start), length;
