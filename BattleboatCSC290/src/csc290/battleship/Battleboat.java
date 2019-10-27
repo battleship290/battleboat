@@ -31,12 +31,11 @@ public class Battleboat {
 	public boolean move(int row, int col) {
 		if (this.numberOfPlayers == 2) {
 			
-			
 		}
 	}
 
 
-	public int getCount(char player) {
+	public int getLifeCount(char player) {
 		if (player == P1) return this.board1.getHealthyBoatCount();
 		else if (player == P2) return this.board2.getHealthyBoatCount();
 		else if (player == P3) return this.board3.getHealthyBoatCount();
@@ -46,23 +45,26 @@ public class Battleboat {
 
 
 	public char getWinner() {
-		int countP1 = this.getCount(P1);
-		int countP2 = this.getCount(P2);
-		int countP3 = this.getCount(P3);
-		int countP4 = this.getCount(P4);
-		if (this.isGameOver()) {
-			if (countP1 > countP2) return OthelloBoard.P1;
-			else if (countP2 > countP1) return OthelloBoard.P2;
-			else return OthelloBoard.EMPTY;
+		int countP1 = this.getLifeCount(P1);
+		int countP2 = this.getLifeCount(P2);
+		int countP3 = this.getLifeCount(P3);
+		int countP4 = this.getLifeCount(P4);
+		if (this.isGameOver(countP1, countP2, countP3, countP4)) {
+			if (countP2 == 0 && countP4 == 0) return P1;
+			else if (countP1 == 0 && countP3 == 0) return P2;
+			else return BattleboatBoard.EMPTY;
 		}
-		return OthelloBoard.EMPTY;
+		return BattleboatBoard.EMPTY;
 	}
 
 	public boolean isGameOver(int p1Life, int p2Life, int p3Life, int p4Life) {
 		if (this.numberOfPlayers == 2 && (p1Life == 0 || p2Life == 0)) {
 			return true;
 		}
-		return false;
+		else if (this.numberOfPlayers == 4 && ((p1Life == 0 && p3Life == 0) || (p2Life == 0 && p4Life == 0))) {
+			return true;
+		}
+		else return false;
 	}
 
 	/**
