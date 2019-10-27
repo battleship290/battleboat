@@ -62,6 +62,36 @@ public class BattleboatBoard {
 		else return false;
 	}
 	
+	public boolean hasMove(int row, int col) {
+		if (!this.validCoordinate(row, col)) return false;
+		if (this.board[row][col] == HIT || this.board[row][col] == MISS) return false;
+		else return true;
+	}
+	
+	public boolean Move(int row, int col, Missile m) {
+		if (m.getType() == "regular" && this.hasMove(row, col)) {
+			if (this.board[row][col] == BOAT) {
+				this.board[row][col] = HIT;
+				// update other possible conditions BTL
+				return true;
+			}
+			else if (this.board[row][col] == EMPTY) {
+				this.board[row][col] = MISS;
+				// update other possible conditions BTL 
+				return true;
+			}
+			// this case should technically never happen
+			else return false;
+		}
+		
+		// *****if else statements for missiles of other types BTL*****
+		
+		else {
+			return false;
+		}
+	}
+
+	
 	private boolean canPlaceBoat(int row_start, int col_start, int drow, int dcol, int length) {
 		int count = 1;
 		int row = row_start, col = col_start;
