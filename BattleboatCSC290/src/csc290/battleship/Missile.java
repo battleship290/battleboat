@@ -23,14 +23,5 @@ public class Missile {
 		return this.quantity;
 	}
 	
-	public boolean useMissile() {
-		if (this.quantity == 0) {
-			return false;
-		}
-		else if (this.quantity > 0) {
-			this.quantity --;
-			return true;
-		}
-		else return true;
-	}
+
 }
