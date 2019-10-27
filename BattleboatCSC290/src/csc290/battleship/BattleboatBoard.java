@@ -37,6 +37,12 @@ public class BattleboatBoard {
 		}
 	}
 	
+	/**
+	 * return if the coordinate is valid
+	 * @param row
+	 * @param col
+	 * @return boolean
+	 */
 	private boolean validCoordinate(int row, int col) {
 		if (row < 0 || col < 0 || row > dim-1 || col > dim-1) return false;
 		return true;
@@ -56,12 +62,69 @@ public class BattleboatBoard {
 		return count;
 	}
 	
+	/**
+	 * check if the object at row,col is a boat
+	 * @param row
+	 * @param col
+	 * @return boolean
+	 */
 	public boolean isBoat(int row, int col) {
 		if (!this.validCoordinate(row, col)) return false;
 		if (this.board[row][col] == BOAT || this.board[row][col] == HIT) return true;
 		else return false;
 	}
+
+	/**
+	 * check if the row,col coordinate has a move
+	 * @param row
+	 * @param col
+	 * @return boolean
+	 */
+	public boolean hasMove(int row, int col) {
+		if (!this.validCoordinate(row, col)) return false;
+		if (this.board[row][col] == HIT || this.board[row][col] == MISS) return false;
+		else return true;
+	}
 	
+	/**
+	 * try to make a move at the row,col coordinate with the missile m, and return true if the move is made.
+	 * @param row
+	 * @param col
+	 * @param m
+	 * @return boolean
+	 */
+	public boolean Move(int row, int col, Missile m) {
+		if (m.getType() == "regular" && this.hasMove(row, col)) {
+			if (this.board[row][col] == BOAT) {
+				this.board[row][col] = HIT;
+				// update other possible conditions BTL
+				return true;
+			}
+			else if (this.board[row][col] == EMPTY) {
+				this.board[row][col] = MISS;
+				// update other possible conditions BTL 
+				return true;
+			}
+			// this case should technically never happen
+			else return false;
+		}
+		
+		// *****if else statements for missiles of other types BTL*****
+		
+		else {
+			return false;
+		}
+	}
+
+	/**
+	 * check if the the boat with length of length can be place at the coordinate row_start,col_start, return true if can be placed
+	 * @param row_start
+	 * @param col_start
+	 * @param drow
+	 * @param dcol
+	 * @param length
+	 * @return boolean
+	 */
 	private boolean canPlaceBoat(int row_start, int col_start, int drow, int dcol, int length) {
 		int count = 1;
 		int row = row_start, col = col_start;
@@ -76,6 +139,14 @@ public class BattleboatBoard {
 		return true;
 	}
 	
+	/**
+	 * place the boat at coordinate row_start,col_start, return true if the boat is placed 
+	 * @param row_start
+	 * @param col_start
+	 * @param row_end
+	 * @param col_end
+	 * @return boolean
+	 */
 	public boolean placeBoat(int row_start, int col_start, int row_end, int col_end) {
 		int row = row_start, col = col_start;
 		int drow = (row_end - row_start), dcol = (col_end - col_start), length;
@@ -101,30 +172,6 @@ public class BattleboatBoard {
 			}
 			return true;
 		}
-		return false;
-	}
-	
-	public boolean hasMove(int row, int col) {
-		if (!this.validCoordinate(row, col)) return false;
-		if (this.board[row][col] == HIT || this.board[row][col] == MISS) return false;
-		else return true;
-	}
-	
-	public boolean Move(int row, int col) {
-		if (this.hasMove(row, col)) {
-			if (this.board[row][col] == BOAT) {
-				this.board[row][col] = HIT;
-				// update other possible conditions BTL
-				return true;
-			}
-			else if (this.board[row][col] == EMPTY) {
-				this.board[row][col] = MISS;
-				// update other possible conditions BTL 
-				return true;
-			}
-			// this case should technically never happen
-			else return false;
-		}		
 		return false;
 	}
 	
