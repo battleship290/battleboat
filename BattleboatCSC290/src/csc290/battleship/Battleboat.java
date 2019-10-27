@@ -45,7 +45,27 @@ public class Battleboat {
 		else return 0;
 	}
 
-
+	/**
+	 * Returns winner of game iff the game is over
+	 * 
+	 * @return P1 or P2 can be used to link to 
+	 * Team1 and Team2 once 2v2 is implemented
+	 * EMPTY if there is no winner or game is not over
+	 */
+	public char getWinner() {
+		// count of number of un-hit BOAT coordinates left for each player
+		int countP1 = this.getLifeCount(P1); 
+		int countP2 = this.getLifeCount(P2);
+		int countP3 = this.getLifeCount(P3); // will be 0 by default in 1v1
+		int countP4 = this.getLifeCount(P4); // will be 0 by default in 1v1
+		
+		if (this.isGameOver(countP1, countP2, countP3, countP4)) { //check if game is over
+			if (countP2 == 0 && countP4 == 0) return P1; 
+			else if (countP1 == 0 && countP3 == 0) return P2;
+			else return BattleboatBoard.EMPTY; // should not happen, this is a fail safe
+		}
+		return BattleboatBoard.EMPTY; // game is likely no over
+	}
 
 	public boolean isGameOver(int p1Life, int p2Life, int p3Life, int p4Life) {
 		if (this.numberOfPlayers == 2 && (p1Life == 0 || p2Life == 0)) {
