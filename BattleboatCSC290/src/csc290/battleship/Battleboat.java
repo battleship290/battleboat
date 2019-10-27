@@ -28,10 +28,11 @@ public class Battleboat {
 	}
 
 
-	public boolean move(int row, int col) {
+	public boolean Move(int row, int col, Missile missile) {
 		if (this.numberOfPlayers == 2) {
 			
 		}
+		return false;
 	}
 
 
@@ -61,7 +62,8 @@ public class Battleboat {
 		if (this.numberOfPlayers == 2 && (p1Life == 0 || p2Life == 0)) {
 			return true;
 		}
-		else if (this.numberOfPlayers == 4 && ((p1Life == 0 && p3Life == 0) || (p2Life == 0 && p4Life == 0))) {
+		else if (this.numberOfPlayers == 4 && 
+				((p1Life == 0 && p3Life == 0) || (p2Life == 0 && p4Life == 0))) {
 			return true;
 		}
 		else return false;
