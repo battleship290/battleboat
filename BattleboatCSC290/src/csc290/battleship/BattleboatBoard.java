@@ -74,47 +74,6 @@ public class BattleboatBoard {
 		else return false;
 	}
 
-	/**
-	 * check if the row,col coordinate has a move
-	 * @param row
-	 * @param col
-	 * @return boolean
-	 */
-	public boolean hasMove(int row, int col) {
-		if (!this.validCoordinate(row, col)) return false;
-		if (this.board[row][col] == HIT || this.board[row][col] == MISS) return false;
-		else return true;
-	}
-	
-	/**
-	 * try to make a move at the row,col coordinate with the missile m, and return true if the move is made.
-	 * @param row
-	 * @param col
-	 * @param m
-	 * @return boolean
-	 */
-	public boolean Move(int row, int col, Missile m) {
-		if (m.getType() == "regular" && this.hasMove(row, col)) {
-			if (this.board[row][col] == BOAT) {
-				this.board[row][col] = HIT;
-				// update other possible conditions BTL
-				return true;
-			}
-			else if (this.board[row][col] == EMPTY) {
-				this.board[row][col] = MISS;
-				// update other possible conditions BTL 
-				return true;
-			}
-			// this case should technically never happen
-			else return false;
-		}
-		
-		// *****if else statements for missiles of other types BTL*****
-		
-		else {
-			return false;
-		}
-	}
 
 	/**
 	 * check if the the boat with length of length can be place at the coordinate row_start,col_start, return true if can be placed
