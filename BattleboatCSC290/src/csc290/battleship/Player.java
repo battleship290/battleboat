@@ -61,14 +61,49 @@ public class Player {
 		else return false;
 	}
 	
-	//default BOATs set
+	/**
+	 * Updates the total number of Boats
+	 */
+	private void updateNumOfBoats() {
+		for (Map.Entry<String, ArrayList<String>> element : this.setOfBoats.entrySet()) {
+			this.numOfBoats += Integer.parseInt(element.getValue().get(1));
+		}
+	}
+	
+//	//default BOATs set
+//	public String setUpBoats() {
+//		this.setOfBoats = new HashMap<String, ArrayList<String>>();
+//		
+//		ArrayList<String> regular2 = new ArrayList<String>();
+//		ArrayList<String> regular3 = new ArrayList<String>();
+//		ArrayList<String> regular4 = new ArrayList<String>();
+//		ArrayList<String> regular5 = new ArrayList<String>();
+//		
+//		this.setOfBoats.putIfAbsent("regular_2", regular2);
+//		regular2.add("2");
+//		regular2.add("1");
+//		this.setOfBoats.putIfAbsent("regular_3", regular3);
+//		regular3.add("3");
+//		regular3.add("2");
+//		this.setOfBoats.putIfAbsent("regular_4", regular4);
+//		regular4.add("4");
+//		regular4.add("1");
+//		this.setOfBoats.putIfAbsent("regular_5", regular5);
+//		regular5.add("5");
+//		regular5.add("1");
+//		
+//		for (Map.Entry<String, ArrayList<String>> element : this.setOfBoats.entrySet()) {
+//			this.numOfBoats += Integer.parseInt(element.getValue().get(1));
+//		}
+//		
+//		return "default";
+//	}
+	
 	public String setUpBoats() {
 		this.setOfBoats = new HashMap<String, ArrayList<String>>();
 		
 		ArrayList<String> regular2 = new ArrayList<String>();
 		ArrayList<String> regular3 = new ArrayList<String>();
-		ArrayList<String> regular4 = new ArrayList<String>();
-		ArrayList<String> regular5 = new ArrayList<String>();
 		
 		this.setOfBoats.putIfAbsent("regular_2", regular2);
 		regular2.add("2");
@@ -76,16 +111,8 @@ public class Player {
 		this.setOfBoats.putIfAbsent("regular_3", regular3);
 		regular3.add("3");
 		regular3.add("2");
-		this.setOfBoats.putIfAbsent("regular_4", regular4);
-		regular4.add("4");
-		regular4.add("1");
-		this.setOfBoats.putIfAbsent("regular_5", regular5);
-		regular5.add("5");
-		regular5.add("1");
 		
-		for (Map.Entry<String, ArrayList<String>> element : this.setOfBoats.entrySet()) {
-			this.numOfBoats += Integer.parseInt(element.getValue().get(1));
-		}
+		this.updateNumOfBoats();
 		
 		return "default";
 	}
@@ -112,11 +139,17 @@ public class Player {
 	public void addBoat(String type, Coord coordStart, Coord coordEnd) {
 		ArrayList<Coord> coords = new ArrayList<Coord>();
 		Coord tempCoord;
+		int drow, dcol;
 		
 		int length = lengthHelper(coordStart, coordEnd);
-		if (length == 0) return;
-		int drow = (int) (coordEnd.getRow() - coordStart.getRow()) / (length - 1);
-		int dcol = (int) (coordEnd.getCol() - coordStart.getCol()) / (length - 1);
+		if (length > 1) {
+			drow = (int) (coordEnd.getRow() - coordStart.getRow()) / (length - 1);
+			dcol = (int) (coordEnd.getCol() - coordStart.getCol()) / (length - 1);
+		}
+		else {
+			drow = (int) (coordEnd.getRow() - coordStart.getRow());
+			dcol = (int) (coordEnd.getCol() - coordStart.getCol());
+		}
 
 		for (int i = 0; i < length; i ++) {
 			tempCoord = new Coord(coordStart.getRow() + (i*drow), coordStart.getCol() + (i*dcol));
