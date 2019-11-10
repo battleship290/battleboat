@@ -160,22 +160,23 @@ public class BattleboatBoard {
 	 * @return boolean
 	 */
 	public boolean placeBoat(int row_start, int col_start, int row_end, int col_end) {
-		int row = row_start, col = col_start;
-		int drow = (row_end - row_start+1), dcol = (col_end - col_start+1), length;
+		int row = row_start; 
+		int col = col_start;
+		int drow = (row_end - row_start), dcol = (col_end - col_start), length;
 		
 		if (drow != 0) {
-			length = java.lang.Math.abs(drow++);
+			length = java.lang.Math.abs(drow) + 1;
 		}
 		else if (dcol != 0) {
-			length = java.lang.Math.abs(dcol++);
+			length = java.lang.Math.abs(dcol) + 1;
 		}
 		else {
 			System.out.println("place failed");
 			return false;
 		}
 		
-		drow = drow/length;
-		dcol = dcol/length;
+		drow = drow/(length - 1);
+		dcol = dcol/(length - 1);
 		System.out.println(row + " "+ col + " "+ drow + " "+ dcol + " "+ length);
 		
 		

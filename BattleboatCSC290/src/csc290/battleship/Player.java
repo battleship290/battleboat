@@ -115,8 +115,8 @@ public class Player {
 		
 		int length = lengthHelper(coordStart, coordEnd);
 		if (length == 0) return;
-		int drow = (int) (coordEnd.getRow() - coordStart.getRow()) / length--;
-		int dcol = (int) (coordEnd.getCol() - coordStart.getCol()) / length--;
+		int drow = (int) (coordEnd.getRow() - coordStart.getRow()) / (length - 1);
+		int dcol = (int) (coordEnd.getCol() - coordStart.getCol()) / (length - 1);
 
 		for (int i = 0; i < length; i ++) {
 			tempCoord = new Coord(coordStart.getRow() + (i*drow), coordStart.getCol() + (i*dcol));
