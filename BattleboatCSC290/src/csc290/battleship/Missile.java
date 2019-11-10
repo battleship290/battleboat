@@ -32,19 +32,26 @@ public class Missile {
 	public int getQuantity() {
 		return this.quantity;
 	}
+	
+	public boolean canUse() {
+		if (this.quantity == 0) {
+			return false;
+		}
+		else return true;
+	}
 	/**
 	 * 
 	 * @return Whether a player uses a missile. 
 	 */
-	public boolean useMissile() {
-		if (this.quantity == 0) {
-			return false;
+	public boolean use() {
+		if (this.quantity < 0) {
+			return true;
 		}
 		else if (this.quantity > 0) {
 			this.quantity --;
 			return true;
 		}
-		else return true;
+		else return false;
 		
 	}
 }
