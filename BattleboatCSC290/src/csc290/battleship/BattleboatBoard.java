@@ -48,6 +48,13 @@ public class BattleboatBoard {
 		return true;
 	}
 	
+	public boolean validCoordinates(Coord start, Coord end) {
+		boolean startValid = this.validCoordinate(start.getRow(), start.getCol());
+		boolean endValid = this.validCoordinate(end.getRow(), end.getCol());
+		return startValid && endValid;
+		
+	}
+	
 	/**
 	 * Counts the number of live Boat tiles left
 	 * @return
@@ -88,13 +95,14 @@ public class BattleboatBoard {
 	
 	/**
 	 * try to make a move at the row,col coordinate with the missile m, and return true if the move is made.
+	 * 
 	 * @param row
 	 * @param col
 	 * @param m
 	 * @return boolean
 	 */
-	public boolean Move(int row, int col, Missile m) {
-		if (m.getType() == "regular" && this.hasMove(row, col)) {
+	public boolean move(int row, int col, Missile missile) {
+		if (missile.getType() == "regular" && this.hasMove(row, col)) {
 			if (this.board[row][col] == BOAT) {
 				this.board[row][col] = HIT;
 				// update other possible conditions BTL
@@ -139,6 +147,10 @@ public class BattleboatBoard {
 		return true;
 	}
 	
+	public boolean placeBoat(Coord start, Coord end) {
+		return this.placeBoat(start.getRow(), start.getCol(), end.getRow(), end.getCol());
+	}
+	
 	/**
 	 * place the boat at coordinate row_start,col_start, return true if the boat is placed 
 	 * @param row_start
@@ -149,15 +161,18 @@ public class BattleboatBoard {
 	 */
 	public boolean placeBoat(int row_start, int col_start, int row_end, int col_end) {
 		int row = row_start, col = col_start;
-		int drow = (row_end - row_start), dcol = (col_end - col_start), length;
+		int drow = (row_end - row_start+1), dcol = (col_end - col_start+1), length;
 		
 		if (drow != 0) {
-			length = java.lang.Math.abs(drow);
+			length = java.lang.Math.abs(drow++);
 		}
 		else if (dcol != 0) {
-			length = java.lang.Math.abs(dcol);
+			length = java.lang.Math.abs(dcol++);
 		}
-		else return false;
+		else {
+			System.out.println("place failed");
+			return false;
+		}
 		
 		drow = drow/length;
 		dcol = dcol/length;
