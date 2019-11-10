@@ -171,12 +171,14 @@ public class BattleboatBoard {
 			length = java.lang.Math.abs(dcol) + 1;
 		}
 		else {
-			System.out.println("place failed");
-			return false;
+			length = 1;
 		}
 		
-		drow = drow/(length - 1);
-		dcol = dcol/(length - 1);
+		if (length > 1) {
+			drow = drow/(length - 1);
+			dcol = dcol/(length - 1);
+		}
+		
 		System.out.println(row + " "+ col + " "+ drow + " "+ dcol + " "+ length);
 		
 		
