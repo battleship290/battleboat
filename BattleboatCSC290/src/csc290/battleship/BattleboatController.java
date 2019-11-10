@@ -28,17 +28,22 @@ public class BattleboatController {
 			this.report();
 
 			HashMap<String, ArrayList<String>> setOfBoats;
-			
+
 			while (!player1.isSetUp()) {
+				
 				setOfBoats = (HashMap<String, ArrayList<String>>) player1.getSetOfBoats();
 				for (Map.Entry<String, ArrayList<String>> element : setOfBoats.entrySet()) {
 					this.setupHelper(element, player1);
+					
+					System.out.println("player1 boat set: " + player1.getBoats().size());
 				}
 			}
 			while (!player2.isSetUp()) {
+				System.out.println(player1.getBoats().size());
 				setOfBoats = (HashMap<String, ArrayList<String>>) player2.getSetOfBoats();
 				for (Map.Entry<String, ArrayList<String>> element : setOfBoats.entrySet()) {
 					this.setupHelper(element, player2);
+					System.out.println("player2 boat set: " + player2.getBoats().size());
 				}
 			}
 		}
