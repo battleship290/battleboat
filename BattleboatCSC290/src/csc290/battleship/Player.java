@@ -57,7 +57,7 @@ public class Player {
 	 * @return
 	 */
 	public boolean isSetUp() {
-		if (this.getBoats().size() == this.numOfBoats--) return true;
+		if (this.getBoats().size() == this.numOfBoats) return true;
 		else return false;
 	}
 	
@@ -92,11 +92,11 @@ public class Player {
 	
 	private static int lengthHelper(Coord start, Coord end) {
 		int drow, dcol;
-		drow = end.getRow() - start.getRow() + 1;
-		dcol = end.getCol() - start.getCol() + 1;
+		drow = end.getRow() - start.getRow();
+		dcol = end.getCol() - start.getCol();
 		
-		if (drow != 0) return Math.abs(drow);
-		else if (dcol != 0) return Math.abs(dcol);
+		if (drow != 0) return Math.abs(drow) + 1;
+		else if (dcol != 0) return Math.abs(dcol) + 1;
 		else return 0;
 	}
 	
@@ -115,8 +115,8 @@ public class Player {
 		
 		int length = lengthHelper(coordStart, coordEnd);
 		if (length == 0) return;
-		int drow = (int) (coordEnd.getRow() - coordStart.getRow())/length;
-		int dcol = (int) (coordEnd.getCol() - coordStart.getCol())/length;
+		int drow = (int) (coordEnd.getRow() - coordStart.getRow()) / length--;
+		int dcol = (int) (coordEnd.getCol() - coordStart.getCol()) / length--;
 
 		for (int i = 0; i < length; i ++) {
 			tempCoord = new Coord(coordStart.getRow() + (i*drow), coordStart.getCol() + (i*dcol));
