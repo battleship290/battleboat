@@ -132,7 +132,7 @@ The constructor is directly inherited from BattleboatController .
 
 ## <a name="Extension"></a>Code Extension for Future Development
 
-
+The code is designed for a one versus one and two versus two environment. Although that has not been fully implemented yet all methods are created to adapt to two versus two play. For instance, the main Battleboat class file generates four players and four boards instead of two. The GUI BBGrid generate a grid for each board separately. Hence, by generating additional grids and modifying the main rule set in BattleboatController, a two versus two game is a few edits away. It is highly regrettable that we did not have enough free time to devote to this game. Therefore, we are going to keep supporting future development on this project.
 
 [Back to top](#top)
 
