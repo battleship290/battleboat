@@ -27,8 +27,8 @@ destroy all the opponent’s boats before he destroys yours.
 <a name="screen"></a>Screenshots
 --------------------------------
 
-![Imgur](https://imgur.com/M9qdVgd)
-![Imgur](https://imgur.com/WlOQ7e2)
+![Imgur](https://i.imgur.com/M9qdVgd.png)
+![Imgur](https://i.imgur.com/WlOQ7e2.png)
 
 [Back to top](#top)
 
