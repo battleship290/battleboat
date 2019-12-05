@@ -56,7 +56,7 @@ double click on the executable file, “Battleboat.exe” to play.
 <a name="documen"></a>Documentation
 -----------------------------------
 
-### The <Coord> Class:
+### The Coord Class:
 
 This class stores the information of the coordinates of the players’
 boats. It interacts with the <Move> class which further updates the
@@ -67,7 +67,7 @@ which returns the row of the coordinates. -The getCol() method which
 returns the col of the coordinates. -The toString() method which returns
 a string representation of the coordinates.
 
-### The <Missile> Class:
+### The Missile Class:
 
 This class stores information about the missile that is to be used by
 the <Player> class. It has in the “quantity” and “type” private
@@ -79,7 +79,7 @@ returns the quantity of the missiles. -The canUse() method which returns
 true if the player still has missiles left to be used. -The use() method
 returns true only when the players use a missile.
 
-### The <Move> Class:
+### The Move Class:
 
 This class uses inheritance by extending the Coord class. This class is
 used to make a move according to the type of missile used by the player.
@@ -89,7 +89,7 @@ getMissileIndex() method which returns the index of a missile from the
 list of missiles -The toString() method which inherits from the <Coord>
 class.
 
-### The <BattleboatBoard> Class
+### The BattleboatBoard Class
 
 This class initializes the gameplay board and allows the player to
 modify the board by changing the size of the board. It has functions as
@@ -106,7 +106,7 @@ the row and column value and returns what is in that position. -The
 set() function takes a row, column, and character value, then set the
 position into the character.
 
-### The <BattleboatController> Class :
+### The BattleboatController Class :
 
 This is the parent controller class . Attributes: -The single instance
 of Battleboat object is the main game model. All other attributes are
@@ -125,7 +125,7 @@ players take turns playing moves on their opponent’s boards. -Abstract
 declarations of report , reportMove , and reportFinal are meant for
 implementation in the subclass BattleboatControllerVerbose .
 
-### The <BattleboatControllerVerbose> Class:
+### The BattleboatControllerVerbose Class:
 
 This subclass extends BattleboatController . There are no additional
 attributes. However, the purpose of this subclass is to implement
@@ -137,7 +137,7 @@ player should be the one to input a move when prompted. -The reportFinal
 method prints out the winner of a game. This method should only be
 called when the game is over.
 
-### The <BattleboatControllerHumanVSHuman> Class :
+### The BattleboatControllerHumanVSHuman Class :
 
 This subclass extends BattleboatControllerVerbose . The intention is to
 simulate a two human-player game . There are no additional attributes
