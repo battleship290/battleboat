@@ -31,7 +31,7 @@ destroy all the opponent’s boats before he destroys yours.
 <a name="feature"></a>Game Controls and Features
 ------------------------------------------------
 
-###RULES:
+### RULES:
 
 -Each Player has different boats to choose from, for his board.
 -Each player then sets up his/her boats anywhere on the board either vertically, horizontally or diagonally.
