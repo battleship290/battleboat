@@ -6,11 +6,15 @@ The Battleship-inspired board game created using `Java` and `javafx`.
 Navigation
 ----------
 
-<a name="top"></a> 1. [Game Description](#intro) -
-[Screenshots](#screen) 2. [Game Controls and Features](#feature) 3. [How
-to Install Battleboat](#install) 4. [Documentation](#document) 5. [Code
-Extension for Future Development](#extension) 5. [Authors](#Authors) 6.
-[Individual Contributions](#addendum) 7. [License Information](#license)
+<a name="top"></a> 
+1. [Game Description](#intro) -[Screenshots](#screen) 
+2. [Game Controls and Features](#feature) 
+3. [Howto Install Battleboat](#install) 
+4. [Documentation](#document) 
+5. [CodeExtension for Future Development](#extension) 
+6. [Authors](#Authors) 
+7. [Individual Contributions](#addendum) 
+8. [License Information](#license)
 
 <a name="intro"></a>Game Description
 ------------------------------------
@@ -23,8 +27,8 @@ destroy all the opponent’s boats before he destroys yours.
 <a name="screen"></a>Screenshots
 --------------------------------
 
-![Imgur](https://i.imgur.com/eWIKpeU.png)
-![Imgur](https://i.imgur.com/LmuS75W.png)
+![Imgur](https://imgur.com/M9qdVgd)
+![Imgur](https://imgur.com/WlOQ7e2)
 
 [Back to top](#top)
 
