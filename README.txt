@@ -30,6 +30,29 @@ Battleboat is a turn-by-turn based game in which the objective is to destroy all
 
 ## <a name="feature"></a>Game Controls and Features
 
+###RULES:
+
+-Each Player has different boats to choose from, for his board.
+-Each player then sets up his/her boats anywhere on the board either vertically, horizontally or diagonally.
+-When the players are done with setting their respective boards, the game begins.
+-Battleboat is a turn-by-turn based game.
+-On one’s turn, one chooses the type of missile with which one wants to attack the opponent’s board.
+-Then, one clicks a tile on the opponent’s board to try and hit a boat.
+-A red tile represents that a boat has been hit, and a blue tile represents that the shot was missed.
+-The game continues turn-by-turn, and the first player to destroy all the boats of the other player wins.
+
+### Types of Boats:
+-Patrol Boat: A 2-tile boat with a special Patrol Scanner Missile.
+-Destroyer Boat: A 3-tile boat.
+-Submarine: Another 3-tile boat.
+-Battleship: A 4-tile boat to pay tribute to the original Battleship game.
+-Carrier: A 5-tile big boat.
+
+### Types of Missiles:
+-Regular Missile: A normal missile which hits 1 selected tile in the opponent’s board.
+-Submarine Missile: A special missile which keeps going by hitting every tile from the tile selected to a tile which is either a boat or the end of the board.
+-Patrol Boat Scanner:  A special missile launched from the player’s patrol boat with a special ability to reveal a 3*3 area in the opponent’s board but at the cost of revealing the player’s patrol boat’s location to the opponent.
+
 
 [Back to top](#top)
 
