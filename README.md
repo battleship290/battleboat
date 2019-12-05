@@ -209,15 +209,15 @@ below:
 
 Contribution in the code:
 
-I worked on 3 different classes namely: <Coord>, <Missile>, and <Move>.
-The players place their boats on the board to play the game. The <Coord>
+I worked on 3 different classes namely: Coord, Missile, and Move.
+The players place their boats on the board to play the game. The Coord
 class stores the coordinates of each of the boats so that a boat can be
 hit if the players choose the correct coordinates for their move. The
-<Missile> class is designed such that a player has different types and a
+Missile class is designed such that a player has different types and a
 certain quantity of missiles to be used. It checks if the player still
 has missiles left to be used based on the quantity and which type of the
-missile it is based on the type. The <Move> class is used to make a move
-for the player by getting the coordinates from the <Coord> class. It
+missile it is based on the type. The Move class is used to make a move
+for the player by getting the coordinates from the Coord class. It
 also decides how to make that move based on the type of missile used by
 the player. It does so by getting the index of the missile from the list
 of the missiles that a player has.
@@ -235,12 +235,15 @@ with the class itself, like getHealthyBoatCount(), validCoordinates()
 and others. The board contains all the correlation between boats and
 missiles, and move the missile differently according to the missile type
 you chose. It also checks available moves that can be made on the board
-and consistently making sure that the game is not over. . Contribution
-in Readme: Installation, Individual Contribution, Documentation
+and consistently making sure that the game is not over. 
+
+Contribution in Readme:
+
+Installation, Individual Contribution, Documentation
 
 ### David Zhao
 
-    Contribution in the code:
+Contribution in the code:
 
 I worked on the Player class and how to implement and track each
 player’s resources. Out of multiple designs, I dabbled in a modified GUI
@@ -248,8 +251,9 @@ system. By uniquely extending from prebuilt javafx constructs such as
 Button and GridPane, we can better store information and iterate through
 the grid.
 
-    Contribution in Readme:
-    Code Extension, Documentation, Individual Contribution
+Contribution in Readme:
+
+Code Extension, Documentation, Individual Contribution
 
 [Back to top](#top)
 
