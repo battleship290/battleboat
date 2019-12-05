@@ -1,9 +1,8 @@
 package csc290.battleship;
 
-import java.util.ArrayList;
-import java.util.Random;
+import BattleBoatView.util.Observable;
 
-public class Battleboat {
+public class Battleboat extends Observable{
 	
 	public static final char P1 = '1', P2 = '2', P3 = '3', P4 = '4';
 	private int numberOfPlayers = 2;
@@ -155,6 +154,10 @@ public class Battleboat {
 		else return null;
 	}
 	
+	public boolean placeBoat(BattleboatBoard board, Coord start, Coord end, int fixedLength) {
+		return board.placeBoat(start, end, fixedLength);
+	}
+	
 	/**
 	 * Helper function to try and make legitimate move
 	 * 
@@ -176,6 +179,7 @@ public class Battleboat {
 				targetPlayer.updateBoats(row, col);
 			}
 			this.updateTurn();
+			this.notifyObservers();
 			return true;
 		}
 		return false;
@@ -190,7 +194,7 @@ public class Battleboat {
 	 * @return
 	 */
 	public boolean move(int row, int col, int index) {
-		
+		this.notifyObservers();
 		char currentPlayer = this.getWhosTurn();
 		Missile missile = this.getPlayer(currentPlayer).getMissile(index);
 		if (!missile.canUse()) return false;
