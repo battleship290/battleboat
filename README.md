@@ -27,8 +27,8 @@ destroy all the opponent’s boats before he destroys yours.
 <a name="screen"></a>Screenshots
 --------------------------------
 
-![Imgur](https://imgur.com/M9qdVgd)
-![Imgur](https://imgur.com/WlOQ7e2)
+![Imgur](https://i.imgur.com/SB2LZs2.png)
+![Imgur](https://i.imgur.com/kjdOMAT.png)
 
 [Back to top](#top)
 
@@ -266,7 +266,7 @@ Code Extension, Documentation, Individual Contribution
 
 MIT License
 
-Copyright © 2019 Battleboat
+Copyright © 2019 battleship
 
 You can find a copy of the License at https://mit-license.org/
 
